@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.ipynb_checkpoints/
+*.log
+*.DS_Store
+
+# Virtual environment
+.env/
+.venv/
+env/
+venv/
+ENV/
+Pipfile.lock
+poetry.lock
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code / IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Data and Model Cache
+*.jsonl
+*.pt
+*.bin
+*.h5
+.cache/
+huggingface/
+
+# Optional large outputs (如圖表或備份)
+*.jpg
+*.csv
