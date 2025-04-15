@@ -21,6 +21,12 @@ This project presents a sentiment analysis pipeline utilizing the IMDb movie rev
 - `imdb_reviews_cleaned.json`: 清洗過文本
 - `imdb_reviews_classified.json`: 含分類結果的 JSON
 
+## 📘 Pipeline Details
+- Dataset: IMDb movie reviews (binary sentiment classification)
+- Preprocessing: Tokenization, stopword removal, padding
+- Model: BiLSTM + Embedding layer (PyTorch)
+- Accuracy: 91% on validation set
+
 ## 📊 結果摘要
 1. 情緒分佈總覽：
 - 共有 61 筆評論，其中： 
@@ -35,3 +41,6 @@ This project presents a sentiment analysis pipeline utilizing the IMDb movie rev
 - Negative 常見詞彙：
   **ending, disappointing, Armin, sense, felt, waste, lack, mess**
 ➡️ 多聚焦在劇情收尾與角色安排引發的失落或失望感
+
+## 🔗 Related Links
+- 📝 [Notion project summary (English only)](https://mango-mapusaurus-5df.notion.site/Debby-Yeh-NLP-Application-Engineer-Portfolio-1ca5118474d2801caa58de564fb53e38?pvs=4)
