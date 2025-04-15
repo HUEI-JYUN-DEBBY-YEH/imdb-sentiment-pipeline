@@ -1,3 +1,5 @@
+This project presents a sentiment analysis pipeline utilizing the IMDb movie reviews dataset. It involves data preprocessing, model training, and evaluation phases, providing insights into the application of NLP techniques for sentiment classification tasks.
+
 # 🎬 IMDb Attack on Titan Sentiment Classifier
 
 本專案透過 Hugging Face pipeline 工具，對《進擊的巨人：最終話》IMDB 影評進行情緒分類。
