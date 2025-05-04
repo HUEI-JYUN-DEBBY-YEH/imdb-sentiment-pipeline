@@ -1,46 +1,94 @@
-This project presents a sentiment analysis pipeline utilizing the IMDb movie reviews dataset. It involves data preprocessing, model training, and evaluation phases, providing insights into the application of NLP techniques for sentiment classification tasks.
+# 🎬 Sentiment Analysis with Transformers Pipeline
 
-# 🎬 IMDb Attack on Titan Sentiment Classifier
+*IMDb Review Classification using Pretrained Models*
 
-本專案透過 Hugging Face pipeline 工具，對《進擊的巨人：最終話》IMDB 影評進行情緒分類。
+This project demonstrates how to quickly deploy a **sentiment analysis pipeline** using Hugging Face's `transformers` library, without any custom training or fine-tuning. It showcases how pretrained models can be leveraged directly to analyze user-generated text with minimal setup.
 
-## 📌 專案目標
-- 練習 BeautifulSoup + Network API 自動爬 IMDb 影評
-- 使用 transformers pipeline 模型進行情緒分類
-- 結果視覺化、整理成資料集與技術報告
+---
 
-## 🛠️ 技術工具
-- Python, BeautifulSoup, requests
-- Hugging Face transformers (`distilbert-base-uncased-finetuned-sst-2-english`)
-- PyTorch backend
-- JSON, pandas, matplotlib
+## 💡 Why This Matters
 
-## 📁 專案架構
-- `imdb_scraper_full.py`: 自動翻頁爬蟲
-- `tokenizer_sentiment_pipeline.py`: 推論主程式
-- `imdb_reviews_cleaned.json`: 清洗過文本
-- `imdb_reviews_classified.json`: 含分類結果的 JSON
+While building custom models is valuable, many practical use cases can benefit from **zero-shot or pretrained pipelines**, especially when time or compute resources are limited. This project illustrates how an NLP engineer can **rapidly prototype sentiment analysis** systems using Hugging Face’s ecosystem — ideal for experimentation, PoC demos, or bootstrapping internal tools.
 
-## 📘 Pipeline Details
-- Dataset: IMDb movie reviews (binary sentiment classification)
-- Preprocessing: Tokenization, stopword removal, padding
-- Model: BiLSTM + Embedding layer (PyTorch)
-- Accuracy: 91% on validation set
+---
 
-## 📊 結果摘要
-1. 情緒分佈總覽：
-- 共有 61 筆評論，其中： 
-  **正向評論（POSITIVE）**佔約 77%
-  **負向評論（NEGATIVE）**約佔 23%
-➡️ 這顯示大多數觀眾對《Attack on Titan: The Final Attack》給予高度正評
+## 🧭 Project Overview
 
-2. 文字雲（WordCloud）洞察重點：
-- Positive 常見詞彙：
-  **masterpiece, thank, story, perfect, Isayama, character, emotional, freedom**
-➡️ 表達出對劇情、角色深度、主題與創作者的感激與讚賞
-- Negative 常見詞彙：
-  **ending, disappointing, Armin, sense, felt, waste, lack, mess**
-➡️ 多聚焦在劇情收尾與角色安排引發的失落或失望感
+```mermaid
+flowchart TD
+    A[Input: IMDb movie review] --> B[transformers.pipeline("sentiment-analysis")]
+    B --> C[Pretrained Model (e.g., distilbert-base-uncased-finetuned-sst-2)]
+    C --> D[Prediction: POSITIVE / NEGATIVE + confidence score]
+```
 
-## 🔗 Related Links
-- 📝 [Notion project summary (English only)](https://mango-mapusaurus-5df.notion.site/Debby-Yeh-NLP-Application-Engineer-Portfolio-1ca5118474d2801caa58de564fb53e38?pvs=4)
+* **Pipeline Type**: Sentiment classification
+* **Model Used**: `distilbert-base-uncased-finetuned-sst-2-english` (default from `transformers`)
+* **Task**: Classify each review as `POSITIVE` or `NEGATIVE`
+* **Output**: Label + Confidence Score (e.g., `POSITIVE (0.998)`)
+
+---
+
+## 📁 Repository Structure
+
+```bash
+imdb-sentiment-pipeline/
+├── inference_pipeline.py     # Main script using Hugging Face pipeline
+├── sample_data/
+│   └── imdb_reviews.csv      # Sample reviews for batch inference
+└── README.md
+```
+
+---
+
+## 🚀 How to Use
+
+1. **Install Dependencies**:
+
+   ```bash
+   pip install transformers pandas
+   ```
+
+2. **Run Inference**:
+
+   ```bash
+   python inference_pipeline.py
+   ```
+
+3. **Expected Output**:
+   For each review, the script returns a sentiment label and confidence score.
+
+---
+
+## 🧪 Sample Output
+
+| Review                           | Prediction | Confidence |
+| -------------------------------- | ---------- | ---------- |
+| "An amazing movie experience."   | POSITIVE   | 0.995      |
+| "The story was weak and boring." | NEGATIVE   | 0.987      |
+
+---
+
+## 🛠 Future Enhancements
+
+* Add Streamlit UI for interactive review scoring
+* Compare multiple models (BERT, RoBERTa, DistilBERT)
+* Enable multi-language sentiment pipelines
+* Fine-tune on domain-specific datasets (e.g., finance, healthcare)
+
+---
+
+## 🧠 Learnings
+
+* Hugging Face `pipeline` enables fast experimentation without training
+* Pretrained models perform well on generic sentiment tasks
+* Ideal for early-stage prototyping and PoC delivery
+
+---
+
+## ✍️ Author
+
+**Debby Yeh**
+NLP Application Engineer in Training
+🔗 [Portfolio (Notion)](https://mango-mapusaurus-5df.notion.site/Debby-Yeh-Portfolio-1ca5118474d2801caa58de564fb53e38)
+💡 Focus: NLP pipelines, vector search, model deployment
+
