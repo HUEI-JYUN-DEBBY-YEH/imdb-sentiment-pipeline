@@ -1,3 +1,5 @@
+This project was part of my journey toward building fair, human-centered AI for workplace transformation.
+
 # 🎬 Sentiment Analysis with Transformers Pipeline
 
 *IMDb Review Classification using Pretrained Models*
